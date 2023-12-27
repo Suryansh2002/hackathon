@@ -31,13 +31,33 @@ async def receive_update(ctx: Context, sender: str, message: UAgentMessage):
 
 
 @main_agent.on_event("startup")
-async def start(ctx: Context):
+async def start(ctx:Context):
+
+    #Here are few examples of various prompts that you can send to the agent
+
+    #send this to add a task , you can send multiple tasks by just sending multiple send messages
     await ctx.send(
         "agent1qtr39jhpalmft4f0x5aye65ddsg6lwazygkesy00hr8jcty8ydh3khmyxvk",
-        message=UAgentMessage(
-            type=UAgentResponseType.MESSAGE, message="Say hi in 2 seconds !"
-        ),
+        message=UAgentMessage(type=UAgentResponseType.MESSAGE, message="add the task to go to doctor for regular checkup aat 10:50pm today")
     )
+
+    await ctx.send(
+        "agent1qtr39jhpalmft4f0x5aye65ddsg6lwazygkesy00hr8jcty8ydh3khmyxvk",
+        message=UAgentMessage(type=UAgentResponseType.MESSAGE, message="add the task to play in ground at 11:50pm today")
+    )
+
+    #send this to delete a task
+    # await ctx.send(
+    #     "agent1qtr39jhpalmft4f0x5aye65ddsg6lwazygkesy00hr8jcty8ydh3khmyxvk",
+    #     message=UAgentMessage(type=UAgentResponseType.MESSAGE, message="delete the task to go to doctor for regular checkup aat 11:50 pm today")
+    # )
+
+    #send this to show all tasks
+    # await ctx.send(
+    #     "agent1qtr39jhpalmft4f0x5aye65ddsg6lwazygkesy00hr8jcty8ydh3khmyxvk",
+    #     message=UAgentMessage(type=UAgentResponseType.MESSAGE, message="show all my tasks")
+    # )
+
 
 
 if __name__ == "__main__":

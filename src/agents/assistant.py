@@ -17,7 +17,7 @@ async def startup(ctx: Context):
 
 @assistant.on_interval(1)
 async def check_tasks(ctx: Context):
-    task = get_upcoming_task()
+    task = await asyncio.to_thread(get_upcoming_task)
     if task is None:
         return
 
